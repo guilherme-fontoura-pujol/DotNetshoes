@@ -9,6 +9,6 @@ public class AppDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlite("Data Source=dotnetshoes.db");[cite: 3]
+        optionsBuilder.UseSqlite("Data Source=dotnetshoes.db");
     }
 }

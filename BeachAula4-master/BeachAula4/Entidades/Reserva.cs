@@ -12,7 +12,7 @@ public class Reserva
     public Reserva(int clienteId, int quadraId, DateTime inicio, DateTime fim)
     {
         if (fim <= inicio)
-            throw new ArgumentException("O horário final deve ser posterior ao inicial.");[cite: 2]
+            throw new ArgumentException("O horário final deve ser posterior ao inicial.");
 
         ClienteId = clienteId;
         QuadraId = quadraId;

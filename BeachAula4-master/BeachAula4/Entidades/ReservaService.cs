@@ -14,6 +14,6 @@ public class ReservaService
         db.Reservas.Add(reserva);
         db.SaveChanges();
 
-        return new CriarReservaResult(reserva.Id, reserva.Inicio, reserva.Fim, reserva.Valor);[cite: 2]
+        return new CriarReservaResult(reserva.Id, reserva.Inicio, reserva.Fim, reserva.Valor);
     }
 }
