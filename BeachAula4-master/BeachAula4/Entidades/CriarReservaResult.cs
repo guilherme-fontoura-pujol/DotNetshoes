@@ -1,0 +1,1 @@
+public record CriarReservaResult(int Id, DateTime Inicio, DateTime Fim, decimal Valor);[cite: 2]
