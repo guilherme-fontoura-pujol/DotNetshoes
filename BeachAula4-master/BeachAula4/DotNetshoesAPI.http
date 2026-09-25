@@ -1,0 +1,13 @@
+POST http://localhost:5000/api/reservas
+Content-Type: application/json
+
+{
+  "clienteId": 1,
+  "quadraId": 2,
+  "inicio": "2026-10-01T18:00:00",
+  "fim": "2026-10-01T19:00:00"
+}
+
+###
+
+GET http://localhost:5000/api/reservas
