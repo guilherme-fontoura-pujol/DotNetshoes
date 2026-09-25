@@ -1,33 +1,25 @@
-﻿namespace BeachAula4.Entidades
-{
-    public class Reserva
-    {
-        public int Id { get; set; } = 0;
-        public int QuadraId { get; set; } = 0;
-        public int ClienteId { get; set; } = 0;
-        public DateTime Inicio {  get; set; } = DateTime.Now;
-        public DateTime Fim {  get; set; } = DateTime.Now;
-        public int Status { get; set; } = 0;
-        public decimal Valor { get; set; } = 0;
+﻿namespace DotNetshoes.Api.Domain;
 
-        public Reserva(int clienteId, int quadraId, DateTime inicio, DateTime fim)
-        {
-            if(fim <= inicio)
-            {
-                Status = 1;
-                return;
-            }
-            var timeSpan = fim - inicio;
-            if(timeSpan < TimeSpan.FromMinutes(60))
-            {
-                Status = 2;
-                return;
-            }
-            QuadraId = quadraId;
-            ClienteId = clienteId;
-            Inicio = inicio;
-            Fim = fim;
-            Valor = 50;
-        }
+public class Reserva
+{
+    public int Id { get; private set; }
+    public int ClienteId { get; private set; }
+    public int QuadraId { get; private set; }
+    public DateTime Inicio { get; private set; }
+    public DateTime Fim { get; private set; }
+    public decimal Valor { get; private set; }
+
+    public Reserva(int clienteId, int quadraId, DateTime inicio, DateTime fim)
+    {
+        if (fim <= inicio)
+            throw new ArgumentException("O horário final deve ser posterior ao inicial.");[cite: 2]
+
+        ClienteId = clienteId;
+        QuadraId = quadraId;
+        Inicio = inicio;
+        Fim = fim;
+        
+        // Regra de negócio simples do domínio:
+        Valor = (fim - inicio).Hours * 100m;
     }
 }
